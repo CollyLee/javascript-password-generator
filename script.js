@@ -13,10 +13,8 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// user selects what arrays to work from (which leads to the selection of a final array)
-// var question1 = confirm("Would you like to include uppercase?")
-// var question2 = confirm("Would you like to include numbers?")
-// var question3 = confirm("Would you like to include special characters?")
+
+
 
 // determines the length of the final password
 // var question4 = prompt("How many characters would you like your password to be?/(max 258)")
@@ -47,14 +45,17 @@ var ranarray03 = Math.floor(Math.random() * array03.length);
 
 
 function generatePassword() { 
+  // user selects what arrays to work from (which leads to the selection of a final array)
   var question1 = confirm("Would you like to include uppercase?")
   var question2 = confirm("Would you like to include numbers?")
   var question3 = confirm("Would you like to include special characters?")
-  var question4 = prompt("How many characters would you like your password to be?/(max 258)")
+  var question4 = prompt("How many characters would you like your password to be?/(max 128)")
 }
 
 if (question1 && question2 && question3) { 
-  var password = [];
+  //  run ranarray0123 question4 times
+  for (let i = 0; i < array0123.length; i++)
+  }
 } 
 
 
