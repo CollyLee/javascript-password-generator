@@ -16,9 +16,6 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-// determines the length of the final password
-// var question4 = prompt("How many characters would you like your password to be?/(max 258)")
-
 // starter arrays, will be the building blocks of the final concat arrays
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -26,54 +23,55 @@ var specialChar = ["!", "^", "@"]
 var number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 // arrays used based on the user's answers to the questions
-var array01 = lowercase.concat(uppercase)
-var array012 = lowercase.concat(uppercase, specialChar)
-var array0123 = lowercase.concat(uppercase, specialChar, number)
-var array02 = lowercase.concat(specialChar)
-var array023 = lowercase.concat(specialChar, number)
-var array03 = lowercase.concat(number)
+var arrayLU = lowercase.concat(uppercase)
+var arrayLUS = lowercase.concat(uppercase, specialChar)
+var arrayLUSN = lowercase.concat(uppercase, specialChar, number)
+var arrayLS = lowercase.concat(specialChar)
+var arrayLSN = lowercase.concat(specialChar, number)
+var arrayLN = lowercase.concat(number)
 
-// selects one random number from the necessary array
-var ranarray01 = Math.floor(Math.random() * array01.length);
-var ranarray012 = Math.floor(Math.random() * array012.length);
-var ranarray0123 = Math.floor(Math.random() * array0123.length);
-var ranarray02 = Math.floor(Math.random() * array02.length);
-var ranarray023 = Math.floor(Math.random() * array023.length);
-var ranarray03 = Math.floor(Math.random() * array03.length);
-
-
+// coding to select ONE random item from the correct arrays based on user's answers
+var ranarrayLU = Math.floor(Math.random() * arrayLU.length);
+var ranarrayLUS = Math.floor(Math.random() * arrayLUS.length);
+var ranarrayLUSN = Math.floor(Math.random() * arrayLUSN.length);
+var ranarrayLS = Math.floor(Math.random() * arrayLS.length);
+var ranarrayLSN = Math.floor(Math.random() * arrayLSN.length);
+var ranarrayLN = Math.floor(Math.random() * arrayLN.length);
 
 
+// function that is run when the Generate Password button is clicked
 function generatePassword() { 
-  // user selects what arrays to work from (which leads to the selection of a final array)
-  var question1 = confirm("Would you like to include uppercase?")
-  var question2 = confirm("Would you like to include numbers?")
-  var question3 = confirm("Would you like to include special characters?")
-  var question4 = prompt("How many characters would you like your password to be?/(max 128)")
+  var questionU = confirm("Would you like to include uppercase?")
+  var questionN = confirm("Would you like to include numbers?")
+  var questionS = confirm("Would you like to include special characters?")
+  var questionL = prompt("How many characters would you like your password to be?/(max 128)")
+
+  // Pulls random items from the appropriate ranarray, looped for as many times as the user has selected character length
+  if (questionU && questionS && questionN) { 
+  for (let i = 0; i < arrayLUSN.length; i++) {
+  ranarrayLUSN;
+   }
 }
+  
+  
 
-if (question1 && question2 && question3) { 
-  //  run ranarray0123 question4 times
-  for (let i = 0; i < array0123.length; i++)
-  }
-} 
-
+alert(password) 
+ }
 
 
-
-// else if (question1 && question2) {
+// else if (questionU && questionN) {
 //   var password = [];
 
-// } else if (question3) {
+// } else if (questionS) {
 //   var password = [];
 
-// } else if (question2 && question3) {
+// } else if (questionN && questionS) {
 //   var password = [];
 
-// } else if (question2) {
+// } else if (questionN) {
 //   var password = [];
 
-// } else if (question1 && question3) {
+// } else if (questionU && questionS) {
 //   var password = [];
 
 // } else {
