@@ -29,14 +29,19 @@ function generatePassword() {
   var questionNum = confirm("Would you like to include numbers?")
   var questionSpe = confirm("Would you like to include special characters?")
 
+  // user given error message if they don't pick at least one character type to use
   if (!questionLow && !questionUpp && !questionNum && !questionSpe) {
     alert("You have to choose at least one!")
-    return
+    return generatePassword()
   }
+  
+  // user sets the length of the final password
   var questionLen = prompt("How many characters would you like your password to be?/(min 8, max 128)")
+  
+  // gives user error message if their password isn't between 8 and 128 characters
   if (questionLen < 8 || questionLen > 128) {
     alert("Must be between 8 and 128 characters!")
-    return
+    return generatePassword()
   }
   
   // concats the final array based on the answers to questionSpe
@@ -60,10 +65,14 @@ function generatePassword() {
     password.push(specialChar[Math.floor(Math.random()*specialChar.length)])
   }
 
-  for (var i = 0; i < questionLen; i++) {
+  // reqChars = need a way to count how many questions were answered yes
+
+  // pushes one character to the final password, repeated based on how long the user wants final password to be
+  for (var i = 3; i < questionLen; i++) {
     password.push(userArray[Math.floor(Math.random()*questionLen)])
   }
 
+  // joins the resulting array into one string
   passwordText = password.join("")
 
   alert(passwordText)
