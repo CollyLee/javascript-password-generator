@@ -13,7 +13,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
 
-
 // starter arrays, will be the building blocks of the final concat arrays
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -29,62 +28,44 @@ function generatePassword() {
   var questionUpp = confirm("Would you like to include uppercase?")
   var questionNum = confirm("Would you like to include numbers?")
   var questionSpe = confirm("Would you like to include special characters?")
-  var questionLen = prompt("How many characters would you like your password to be?/(max 128)")
 
+  if (!questionLow && !questionUpp && !questionNum && !questionSpe) {
+    alert("You have to choose at least one!")
+    return
+  }
+  var questionLen = prompt("How many characters would you like your password to be?/(min 8, max 128)")
+  if (questionLen < 8 || questionLen > 128) {
+    alert("Must be between 8 and 128 characters!")
+    return
+  }
+  
   // concats the final array based on the answers to questionSpe
- 
   if (questionLow) {
     userArray = userArray.concat(lowercase);
-    // password.push(lowercase)
+    password.push(lowercase[Math.floor(Math.random()*lowercase.length)])
   }
   
   if (questionUpp) {
     userArray = userArray.concat(uppercase);
-    // password.push(uppercase);
+    password.push(uppercase[Math.floor(Math.random()*uppercase.length)])
   }
 
   if (questionNum) {
     userArray = userArray.concat(number);
-    // password.push(number);
+    password.push(number[Math.floor(Math.random()*number.length)])
   }
 
   if (questionSpe) {
-  userArray = userArray.concat(specialChar);
-  // password.push(specialChar);
+    userArray = userArray.concat(specialChar);
+    password.push(specialChar[Math.floor(Math.random()*specialChar.length)])
   }
 
-  // need to add mandatory characters
-  for (let i=0; i < questionLen; i++) {
+  for (var i = 0; i < questionLen; i++) {
     password.push(userArray[Math.floor(Math.random()*questionLen)])
   }
 
-  password = password.join("")
+  passwordText = password.join("")
 
-alert(password)
+  alert(passwordText)
+  return
  }
-
-
-
-
-
-
-
-
-
-
-
- // // arrays used based on the user's answers to the questionSpe
-// var arrayLU = lowercase.concat(uppercase)
-// var arrayLUS = lowercase.concat(uppercase, specialChar)
-// var arrayLUSN = lowercase.concat(uppercase, specialChar, number)
-// var arrayLS = lowercase.concat(specialChar)
-// var arrayLSN = lowercase.concat(specialChar, number)
-// var arrayLN = lowercase.concat(number)
-
-// // coding to select ONE random item from the correct arrays based on user's answers
-// var ranarrayLU = Math.floor(Math.random() * arrayLU.length);
-// var ranarrayLUS = Math.floor(Math.random() * arrayLUS.length);
-// var ranarrayLUSN = Math.floor(Math.random() * arrayLUSN.length);
-// var ranarrayLS = Math.floor(Math.random() * arrayLS.length);
-// var ranarrayLSN = Math.floor(Math.random() * arrayLSN.length);
-// var ranarrayLN = Math.floor(Math.random() * arrayLN.length);
