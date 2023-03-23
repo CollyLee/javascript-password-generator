@@ -15,12 +15,12 @@ generateBtn.addEventListener("click", generatePassword);
 
 
 // starter arrays, will be the building blocks of the final concat arrays
-var userArray = []
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var specialChar = ["!", "^", "@"]
 var number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
+var userArray = []
 password = []
 
 // function that is run when the Generate Password button is clicked
@@ -34,24 +34,28 @@ function generatePassword() {
   // concats the final array based on the answers to questionSpe
  
   if (questionLow) {
-    userArray = userArray.concat(lowercase)
+    userArray = userArray.concat(lowercase);
+    // password.push(lowercase)
   }
   
   if (questionUpp) {
-    userArray = userArray.concat(uppercase)
+    userArray = userArray.concat(uppercase);
+    // password.push(uppercase);
   }
 
   if (questionNum) {
-    userArray = userArray.concat(number)
+    userArray = userArray.concat(number);
+    // password.push(number);
   }
 
   if (questionSpe) {
-  userArray = userArray.concat(specialChar)
+  userArray = userArray.concat(specialChar);
+  // password.push(specialChar);
   }
 
   // need to add mandatory characters
   for (let i=0; i < questionLen; i++) {
-    password.push(userArray[Math.floor(Math.random() * questionLen)])
+    password.push(userArray[Math.floor(Math.random()*questionLen)])
   }
 
   password = password.join("")
