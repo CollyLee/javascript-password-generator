@@ -16,6 +16,8 @@ The application displays a large, red Generate Password button. Upon clicking, t
 
 When the questions are answered, the user will receive their final password in the center box of the browser window.
 
+The JavaScript Password Generator can be found [here](https://collylee.github.io/javascript-password-generator/)
+
 ![A screenshot of the application](./Assets/project-screenshot.png)
 
 ## Credits
