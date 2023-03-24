@@ -5,13 +5,11 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
 
 // starter arrays, will be the building blocks of the final concat arrays
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -20,20 +18,26 @@ var specialChar = ["!", "^", "@"]
 var number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 var userArray = []
-password = []
+var password = []
 
 // function that is run when the Generate Password button is clicked
 function generatePassword() { 
+  
   // user sets the length of the final password
-  var questionLen = prompt("How many characters would you like your password to be?/(min 8, max 128)")
+  var questionLen = parseInt(prompt("How many characters would you like your password to be?/(min 8, max 128)"));
 
-  // gives user error message if their password isn't between 8 and 128 characters
+  // gives user error message if their password isn't between 8 and 128 characters, or is not a numerical value
+  if (isNaN(questionLen)) {
+    alert("Must be a numerical value!")
+    return null
+  }
+
   if (questionLen < 8 || questionLen > 128) {
     alert("Must be between 8 and 128 characters!")
-    return generatePassword()
+    return null
   }
   
-  var questionLow = confirm("Would you like to include lowercase")
+  var questionLow = confirm("Would you like to include lowercase?")
   var questionUpp = confirm("Would you like to include uppercase?")
   var questionNum = confirm("Would you like to include numbers?")
   var questionSpe = confirm("Would you like to include special characters?")
@@ -41,7 +45,7 @@ function generatePassword() {
   // user given error message if they don't pick at least one character type to use
   if (!questionLow && !questionUpp && !questionNum && !questionSpe) {
     alert("You have to choose at least one!")
-    return generatePassword()
+    return null
   }
 
   // concats the final array based on the answers to questionSpe
@@ -72,8 +76,7 @@ function generatePassword() {
   }
 
   // joins the resulting array into one string
-  passwordText = password.join("")
+  return password.join("");
 
-  alert(passwordText)
-  return
  }
+
